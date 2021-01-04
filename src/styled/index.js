@@ -10,6 +10,13 @@ import {
   StyledTitle,
 } from "./Navbar";
 import CTA from "./CTA";
+import {
+  Strong,
+  StyledGame,
+  StyledScore,
+  StyledTimer,
+  StyledCharacter,
+} from "./Game";
 
 export {
   Container,
@@ -22,4 +29,9 @@ export {
   Accent,
   CTA,
   StyledTitle,
+  StyledGame,
+  StyledScore,
+  StyledTimer,
+  StyledCharacter,
+  Strong,
 };

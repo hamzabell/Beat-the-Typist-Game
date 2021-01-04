@@ -1,10 +1,23 @@
 import React from "react";
+import {
+  StyledGame,
+  StyledScore,
+  StyledTimer,
+  StyledCharacter,
+  Strong,
+} from "../styled";
 
 function Game(props) {
   return (
-    <div>
-      <h1>Game</h1>
-    </div>
+    <StyledGame>
+      <StyledScore>
+        Score: <Strong>0</Strong>
+      </StyledScore>
+      <StyledCharacter>A</StyledCharacter>
+      <StyledTimer>
+        Time: <Strong>00:30</Strong>
+      </StyledTimer>
+    </StyledGame>
   );
 }
 
