@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import { CTA, Accent, StyledTitle } from "../styled";
 
 function Home(props) {
+  const keyHandler = (e) => {
+    if (e.key === "s") {
+      props.history.push("/game");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keyup", keyHandler);
+
+    return () => {
+      document.removeEventListener("keyup", keyHandler);
+    };
+  }, [keyHandler]);
+
   return (
     <div>
       <StyledTitle>Ready to type?</StyledTitle>
