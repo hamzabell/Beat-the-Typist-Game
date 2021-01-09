@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useScore } from "../context/ScoreContext";
-import { StyledCharacter, StyledLink } from "../styled";
+import { StyledCharacter, StyledLink, StyledTitle } from "../styled";
 
 function GameOver(props) {
   const [score] = useScore();
@@ -28,15 +28,19 @@ function GameOver(props) {
     };
 
     saveHighScore();
-  }, []);
+  }, [score]);
 
   return (
     <div>
-      <h1>Game Over</h1>
+      <StyledTitle>Game Over</StyledTitle>
+      <h2>{scoreMessage}</h2>
       <StyledCharacter>{score}</StyledCharacter>
-      <p>{scoreMessage}</p>
-      <StyledLink to="/">Go Home</StyledLink>
-      <StyledLink to="/game">Play Again?</StyledLink>
+      <div>
+        <StyledLink to="/">Go Home</StyledLink>
+      </div>
+      <div>
+        <StyledLink to="/game">Play Again?</StyledLink>
+      </div>
     </div>
   );
 }
