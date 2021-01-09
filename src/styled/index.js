@@ -17,6 +17,7 @@ import {
   StyledTimer,
   StyledCharacter,
 } from "./Game";
+import { ScoresList, ScoreLI } from "./HighScores";
 
 export {
   Container,
@@ -34,4 +35,6 @@ export {
   StyledTimer,
   StyledCharacter,
   Strong,
+  ScoresList,
+  ScoreLI,
 };
