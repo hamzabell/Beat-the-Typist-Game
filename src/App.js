@@ -5,8 +5,15 @@ import GameOver from "./pages/GameOver";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import { Container, Main, Global } from "./styled";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from "react";
 function App() {
+  const { isLoading, user } = useAuth0();
+
+  if (isLoading) {
+    return <p>loading..</p>;
+  }
+
   return (
     <Router>
       <Global />
