@@ -1,12 +1,4 @@
-require("dotenv").config();
-const Airtable = require("airtable");
-
-Airtable.configure({
-  apiKey: process.env.AIRTABLE_API_KEY,
-});
-
-const base = Airtable.base(process.env.AIRTABLE_API_BASE);
-const table = base(process.env.AIRTABLE_TABLE);
+const { table, getHighScores } = require("./utils/airtable");
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -29,18 +21,9 @@ exports.handler = async (event) => {
     };
   }
   try {
-    const records = await table
-      .select({
-        sort: [{ field: "score", direction: "desc" }],
-      })
-      .firstPage();
+    const records = await getHighScores(false);
 
-    const formattedRecords = records.map((record) => ({
-      id: record.id,
-      fields: record.fields,
-    }));
-
-    const LowestRecord = formattedRecords.slice(-1)[0];
+    const LowestRecord = records.slice(-1)[0];
 
     if (
       typeof LowestRecord.fields.score === "undefined" ||
@@ -51,15 +34,21 @@ exports.handler = async (event) => {
       await table.update([updatedRecord]);
       return {
         statusCode: 200,
-        body: JSON.stringify(updatedRecord),
+        body: JSON.stringify({
+          message: "Hey you just enter the leaderboard!",
+          data: updatedRecord,
+        }),
       };
     } else {
       return {
         statusCode: 200,
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+          message: "Sorry, you didn't do enough to enter the leaderboard",
+        }),
       };
     }
   } catch (err) {
+    console.log(err);
     return {
       statusCode: 500,
       body: JSON.stringify({
