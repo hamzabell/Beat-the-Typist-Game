@@ -5,8 +5,6 @@ function HighScores(props) {
   const [highScores, setHighScores] = React.useState([]);
 
   useEffect(() => {
-    console.log("getting High Scores");
-
     const loadHighScores = async () => {
       try {
         const res = await fetch("/.netlify/functions/getHighScores");

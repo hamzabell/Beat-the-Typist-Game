@@ -11,6 +11,7 @@ ReactDOM.render(
       domain="dev-mzle8ryt.us.auth0.com"
       clientId="ef0Z8zNhMdpBDxvLkpX8CV2BMX8zxh0q"
       redirectUri={window.location.origin}
+      audience="https://learnbuildtypeapi/"
     >
       <ScoreProvider>
         <App />

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { CTA, Accent, StyledTitle } from "../styled";
 
 function Home(props) {

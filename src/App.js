@@ -10,6 +10,10 @@ import { useEffect } from "react";
 function App() {
   const { isLoading, user } = useAuth0();
 
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   if (isLoading) {
     return <p>loading..</p>;
   }
