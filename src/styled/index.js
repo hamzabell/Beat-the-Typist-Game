@@ -18,6 +18,7 @@ import {
   StyledCharacter,
 } from "./Game";
 import { ScoresList, ScoreLI } from "./HighScores";
+import { lightTheme, darkTheme } from "./Themes";
 
 export {
   Container,
@@ -37,4 +38,6 @@ export {
   Strong,
   ScoresList,
   ScoreLI,
+  lightTheme,
+  darkTheme,
 };
