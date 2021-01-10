@@ -8,6 +8,8 @@ import {
   StyledLink,
   Accent,
   StyledTitle,
+  StyledButton,
+  StyledBtn,
 } from "./Navbar";
 import CTA from "./CTA";
 import {
@@ -19,6 +21,7 @@ import {
 } from "./Game";
 import { ScoresList, ScoreLI } from "./HighScores";
 import { lightTheme, darkTheme } from "./Themes";
+import Loader from "./Loader";
 
 export {
   Container,
@@ -40,4 +43,7 @@ export {
   ScoreLI,
   lightTheme,
   darkTheme,
+  StyledButton,
+  StyledBtn,
+  Loader,
 };

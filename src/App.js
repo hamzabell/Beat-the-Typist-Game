@@ -4,7 +4,14 @@ import HighScores from "./pages/HighScores";
 import GameOver from "./pages/GameOver";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import { Container, Main, Global, lightTheme, darkTheme } from "./styled";
+import {
+  Container,
+  Main,
+  Global,
+  lightTheme,
+  darkTheme,
+  Loader,
+} from "./styled";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
@@ -21,7 +28,11 @@ function App() {
       <ThemeProvider theme={currentTheme}>
         <Global />
         <Main>
-          {isLoading && <p>Loading...</p>}
+          {isLoading && (
+            <Loader>
+              <p>Loading...</p>
+            </Loader>
+          )}
           {!isLoading && (
             <Container>
               <Navbar toggleTheme={toggleTheme} />

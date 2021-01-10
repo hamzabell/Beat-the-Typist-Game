@@ -6,6 +6,8 @@ import {
   StyledNavItems,
   StyledLink,
   Accent,
+  StyledButton,
+  StyledBtn,
 } from "../styled";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -15,7 +17,7 @@ function Navbar({ toggleTheme }) {
     <StyledNavbar>
       <StyledNavBrand>
         <StyledLink to="/">
-          Learn.Build.<Accent>Type.</Accent>
+          Beat.The.<Accent>Typist.</Accent>
         </StyledLink>
       </StyledNavBrand>
       <StyledNavItems>
@@ -27,16 +29,16 @@ function Navbar({ toggleTheme }) {
         </li>
         {!isAuthenticated && (
           <li>
-            <button onClick={loginWithRedirect}>Login</button>
+            <StyledButton onClick={loginWithRedirect}>Login</StyledButton>
           </li>
         )}
 
         {isAuthenticated && (
           <li>
-            <button onClick={logout}>Logout</button>
+            <StyledButton onClick={logout}>Logout</StyledButton>
           </li>
         )}
-        <button onClick={toggleTheme}>Toggle Theme</button>
+        <StyledBtn onClick={toggleTheme}>Toggle Theme</StyledBtn>
       </StyledNavItems>
     </StyledNavbar>
   );

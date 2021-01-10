@@ -43,3 +43,21 @@ export const StyledTitle = styled.h1`
   margin-bottom: 2rem;
   margin-top: 3rem;
 `;
+
+export const StyledButton = styled.button`
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: none;
+  &:hover {
+    color: var(--accent-color);
+  }
+`;
+
+export const StyledBtn = styled.button`
+  border: none;
+  background-color: var(--main-text-color);
+  color: var(--main-bg-color);
+  font-size: 1rem;
+  cursor: progress;
+`;
