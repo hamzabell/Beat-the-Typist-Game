@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useScore } from "../context/ScoreContext";
 import { StyledCharacter, StyledLink, StyledTitle } from "../styled";
 import { useAuth0 } from "@auth0/auth0-react";
-
 function GameOver(props) {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0();
   const [score] = useScore();
@@ -25,7 +24,6 @@ function GameOver(props) {
 
         const res = await fetch("/.netlify/functions/saveHighScore", options);
 
-        console.log(res);
         const data = await res.json();
         setScoreMessage(data.message);
       } catch (err) {

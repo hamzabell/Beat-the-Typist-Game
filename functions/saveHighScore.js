@@ -1,8 +1,21 @@
 const { table, getHighScores } = require("./utils/airtable");
-const { getAccessTokenFromHeaders } = require("./utils/auth");
+const {
+  getAccessTokenFromHeaders,
+  validateAccessToken,
+} = require("./utils/auth");
 
 exports.handler = async (event) => {
   const token = getAccessTokenFromHeaders(event.headers);
+  const user = await validateAccessToken(token);
+
+  if (!user) {
+    return {
+      statusCode: 403,
+      body: JSON.stringify({
+        err: "Unauthorized",
+      }),
+    };
+  }
 
   if (!token) {
     return {
