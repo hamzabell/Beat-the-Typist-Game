@@ -9,7 +9,7 @@ import {
 } from "../styled";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Navbar(props) {
+function Navbar({ toggleTheme }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
     <StyledNavbar>
@@ -36,6 +36,7 @@ function Navbar(props) {
             <button onClick={logout}>Logout</button>
           </li>
         )}
+        <button onClick={toggleTheme}>Toggle Theme</button>
       </StyledNavItems>
     </StyledNavbar>
   );

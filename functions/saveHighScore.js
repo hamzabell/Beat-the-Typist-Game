@@ -35,8 +35,9 @@ exports.handler = async (event) => {
     };
   }
 
-  const { score, name } = JSON.parse(event.body);
+  const { score } = JSON.parse(event.body);
 
+  const name = user["https://learnbuildtype/username"];
   if (typeof score === "undefined" || !name) {
     return {
       statusCode: 400,

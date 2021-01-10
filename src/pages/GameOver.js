@@ -3,7 +3,7 @@ import { useScore } from "../context/ScoreContext";
 import { StyledCharacter, StyledLink, StyledTitle } from "../styled";
 import { useAuth0 } from "@auth0/auth0-react";
 function GameOver(props) {
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated, user } = useAuth0();
   const [score] = useScore();
   const [scoreMessage, setScoreMessage] = useState("");
   if (score === -1) {
@@ -14,6 +14,7 @@ function GameOver(props) {
     const saveHighScore = async () => {
       try {
         const token = await getAccessTokenSilently();
+        console.log(user);
         const options = {
           method: "POST",
           body: JSON.stringify({ name: "Akan", score }),
