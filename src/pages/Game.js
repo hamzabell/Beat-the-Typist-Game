@@ -10,7 +10,7 @@ import {
 
 function Game(props) {
   const [score, setScore] = useScore();
-  const MAX_SECONDS = 5;
+  const MAX_SECONDS = 15;
   const [ms, setMs] = useState(0);
   const [seconds, setSeconds] = useState(MAX_SECONDS);
   const [currentChar, setCurrentChar] = useState("");
