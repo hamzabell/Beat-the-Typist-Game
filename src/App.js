@@ -13,24 +13,22 @@ function App() {
   useEffect(() => {
     console.log(user);
   }, [user]);
-
-  if (isLoading) {
-    return <p>loading..</p>;
-  }
-
   return (
     <Router>
       <Global />
       <Main>
-        <Container>
-          <Navbar />
-          <Switch>
-            <Route path="/game" component={Game} />
-            <Route path="/highScores" component={HighScores} />
-            <Route path="/gameOver" component={GameOver} />
-            <Route path="/" exact component={Home} />
-          </Switch>
-        </Container>
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && (
+          <Container>
+            <Navbar />
+            <Switch>
+              <Route path="/game" component={Game} />
+              <Route path="/highScores" component={HighScores} />
+              <Route path="/gameOver" component={GameOver} />
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </Container>
+        )}
       </Main>
     </Router>
   );

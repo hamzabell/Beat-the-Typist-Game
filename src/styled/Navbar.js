@@ -29,12 +29,12 @@ export const StyledLink = styled(Link)`
   font-size: 1.2rem;
   transition: color 200ms;
   &:hover {
-    color: #e16365;
+    color: var(--accent-color);
   }
 `;
 
 export const Accent = styled.span`
-  color: #e16365;
+  color: var(--accent-color);
 `;
 
 export const StyledTitle = styled.h1`
